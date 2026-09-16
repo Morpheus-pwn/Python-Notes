@@ -2,6 +2,8 @@ Hello World
 learn python
 learn java
 learn javascript
-learn c
+learn cgoodbye!
+goodbye!
+goodbye!
 goodbye!
 goodbye!

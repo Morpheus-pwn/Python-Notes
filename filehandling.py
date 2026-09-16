@@ -27,14 +27,29 @@
 # print(p.read())
 # # p.write("goodbye!\n")
 # # print(p.read()) 
-# p.close()
+# # p.close()
 
-# p=open("sample3.txt","a+") # file
+# p=open("sample3.txt","r+") # file will be created if it doesn't exist, and you can read and write to the file. The file pointer is at the end of the file after writing.
 # print(p.read())
-# # p.write("goodbye!\n")
-# # print(p.read()) 
+# p.write("goodbye!\n")
+# print(p.read()) 
 # p.close()
 
-f=open("sample3.txt","w")
-f.writelines(['Hello World\n', 'learn python\n', 'learn java\n', 'learn javascript\n', 'learn c\n', 'goodbye!\n', 'goodbye!\n'])
-f.close()
+# p=open("sample3.txt","r") # file will be created if it doesn't exist, and you can read and write to the file. The file pointer is at the end of the file after writing.
+# print(p.read())
+# p.close()
+
+# f=open("sample4.txt","w")
+# f.write("welcome to python")
+# print(f.name) #returns the name of the file
+# print(f.mode) #returns the mode of the file
+# print(f.closed) #returns true if the file is closed
+# f.close()
+# print(f.closed)
+
+# with open("sample5.txt","w") as f:
+#     f.write("python is a programming language")
+
+# f=open("sample3.txt","w")
+# f.writelines(['Hello World\n', 'learn python\n', 'learn java\n', 'learn javascript\n', 'learn c\n', 'goodbye!\n', 'goodbye!\n'])
+# f.close()

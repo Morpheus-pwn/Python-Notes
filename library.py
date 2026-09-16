@@ -1,49 +1,76 @@
-# write a python program to create a library management system with the following features:
-# 1.use sequence data type to store the book names,author names and member names
-# 2.perform indexing and slicing operations on book names, member names and list of books
-# 3. use string methods to convert book name to uppercase and remove extra spaces from member names
-# 4. demonstrate that strings are immutable by trying to change a character in a book name
-# 5. use list methods to add new books, remove issued books and sort the list of books
-# 6. use list comprehension to Display available books, Filter books starting with a specific letter and Create uppercase book lists.
-# 7. store fixed book categories using tuples.
-# 8. demonstrate that tuples cannot be modified after creation
-# 9. use sets to automatically remove duplicate genres or duplicate book names
-# 10.
-
-
 book_name=["python","java","c++","javascript"]
-member_names=["Alice","Bob","Charlie","pawan","tiswin","edwin"]
+member_names=["Alice wonderland","Bob","Charlie","pawan shaji","tiswin joy","edwin"]
 list_of_books=[]
 author_names=["jk rowling","stephen king","david wallace","charles dickens"]
+genres = {"Python", "Java", "Python", "C++"}
 
 def add_book():
     book = input("Enter the name of the book: ")
     author = input("Enter the name of the author: ")
     list_of_books.append({"book": book, "author": author})
     print(f"Book '{book}' by {author} added successfully.")
+    for book in list_of_books:
+        book['book'] = book['book'].upper()
+        book['book'] = book['book'].strip()
+        book['author'] = book['author'].strip()
+    for book in list_of_books:
+        print(f"Book: {book['book']}, Author: {book['author']}")
+
+def view_books():
+    for book in list_of_books:
+        book['book'] = book['book'].sort()
+        print(f"Book: {book['book']}, Author: {book['author']}")
+
+    # filter books starting with a specific letter
+    letter = input("Enter a letter to filter books starting with that letter: ")
+    filtered_books = [book for book in list_of_books if book['book'].startswith(letter)]
+    for book in filtered_books:
+        print(f"Book: {book['book']}, Author: {book['author']}")
+
+    
+
+def search_book():
+    book['book'].sort()
+    book_name = input("Enter the name of the book to search: ")
+    for book in list_of_books:
+        if book['book'].lower() == book_name.lower():
+            print(f"Book found: {book['book']} by {book['author']}")
+            return
+    print("Book not found.")
+
+def issue_book():
+    book_name = input("Enter the name of the book to issue: ")
+    for book in list_of_books:
+        if book['book'].lower() == book_name.lower():
+            list_of_books.remove(book)
+            print(f"Book '{book_name}' issued successfully.")
+            return
+    print("Book not found.")
 
 def main():
-    print("Welcome to the Library Management System")
-    print("1. Add a book")
-    print("2. View all books")
-    print("3. Search for a book")
-    print("4. Issue a book")
-    print("5. Exit")
+    while True:
+        print("\nLibrary Management System")
+        print("1. Add Book")
+        print("2. View Books")
+        print("3. Search Book")
+        print("4. Issue Book")
+        print("5. Exit")
+        choice = input("Enter your choice: ")
+        
+        if choice == '1':
+            add_book()
+        elif choice == '2':
+            view_books()
+        elif choice == '3':
+            search_book()
+        elif choice == '4':
+            issue_book()
+        elif choice == '5':
+            break
+        else:
+            print("Invalid choice. Please try again.")
 
-    choice = input("Enter your choice: ")
-
-    if choice == "1":
-        add_book()
-    elif choice == "2":
-        view_books()
-    elif choice == "3":
-        search_book()
-    elif choice == "4":
-        issue_book()
-    elif choice == "5":
-        exit()
-    else:
-        print("Invalid choice. Please try again.")
+    print("Thank you for using the Library Management System.")
 
 if __name__ == "__main__":
     main()
